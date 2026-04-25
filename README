@@ -22,6 +22,79 @@ Mettre en place une infrastructure AWS simple avec Terraform, en séparant un en
 ### Stockage
  Un bucket S3 privé avec chiffrement
 
+## Que faire apres le clone ?
+
+1. Aller dans le dossier du projet
+
+```bash
+cd aws_webmarket
+```
+
+2. Verifier les prerequis
+
+```bash
+terraform -version
+aws --version
+```
+
+3. Verifier ton profil AWS configure localement
+
+```bash
+aws sts get-caller-identity --profile default
+```
+
+4. (Optionnel mais recommande) adapter les variables a ton contexte
+
+- Regarder les valeurs par defaut dans `vars.tf`
+- Surcharger via un fichier `terraform.tfvars` local (non versionne)
+
+Exemple minimal de `terraform.tfvars` :
+
+```hcl
+aws_profile = "default"
+aws_region  = "eu-west-3"
+my_ip       = "1.2.3.4/32"
+key_name    = "webmarket-key"
+```
+
+5. Initialiser Terraform
+
+```bash
+terraform init
+```
+
+6. Voir le plan d'execution
+
+```bash
+terraform plan
+```
+
+7. Deployer
+
+```bash
+terraform apply
+```
+
+8. Recuperer les sorties utiles
+
+```bash
+terraform output
+```
+
+9. (Optionnel) Arreter ou demarrer l'instance de test
+
+```powershell
+./scripts/manage-test-ec2.ps1 -Action status
+./scripts/manage-test-ec2.ps1 -Action stop
+./scripts/manage-test-ec2.ps1 -Action start
+```
+
+10. Pour detruire l'infra quand tu as fini
+
+```bash
+terraform destroy
+```
+
 
 ## Déploiement
 
