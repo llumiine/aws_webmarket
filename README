@@ -1,0 +1,38 @@
+# Projet AWS avec Terraform
+
+## Objectif
+
+Mettre en place une infrastructure AWS simple avec Terraform, en séparant un environnement de production et un environnement de test
+
+---
+
+## Ce que fait le projet
+
+### Production
+- Un VPC
+- 2 subnets publics + 2 subnets privés
+- Un Load Balancer (ALB)
+- Un Auto Scaling Group avec des instances EC2
+- Une alerte CloudWatch sur le CPU
+
+### Test
+- Un VPC séparé
+- Une instance EC2 accessible en public
+
+### Stockage
+ Un bucket S3 privé avec chiffrement
+
+
+## Déploiement
+
+Initialisation :
+
+terraform init
+
+## plan -> Affiche ce que Terraform va créer (sans rien modifier)
+terraform plan
+
+## Apply -> Crée réellement les ressources sur AWS
+terraform apply
+
+#repondre -> yes 
