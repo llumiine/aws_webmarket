@@ -44,7 +44,7 @@ resource "aws_launch_template" "prod_web" {
     dnf install -y nginx
     systemctl enable nginx
     systemctl start nginx
-    echo "<h1>WebMarket+ Production - Terraform AWS</h1>" > /usr/share/nginx/html/index.html
+    echo "<h1>Affichage webmarket</h1>" > /usr/share/nginx/html/index.html
   EOF
   )
 
